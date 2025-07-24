@@ -64,15 +64,18 @@ const EventGallery = () => {
 
   return (
     <div className="container mx-auto px-6 py-12 text-center md:text-left md:px-20 lg:px-40">
-      {/* Animated Heading with useInView */}
+      {/* Section Title with motion animation and glowing shadow */}
       <motion.div
-        ref={eventGalleryRef} // Attach the ref to track when in view
+        ref={eventGalleryRef}
         variants={headingVariant}
         initial="hidden"
-        animate={eventGalleryInView ? "show" : "hidden"} // Trigger animation only when in view
+        animate={eventGalleryInView ? "show" : "hidden"}
+        className="xs:text-left xs:px-20 sm:px-20"
       >
-        <h2 className="text-center text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10 filter drop-shadow-[0_0_20px_rgba(128,0,128,1)]">
-          Event Gallery
+        <h2
+          className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_20px_rgba(0,128,255,0.8)] mb-10"
+        >
+          Events
         </h2>
       </motion.div>
 
