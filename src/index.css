@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+body.modal-open .parallax > *,
+body.modal-open .streaky-glow,
+body.modal-open .canvas-loader,
+body.modal-open .jiggle-animation {
+  animation-play-state: paused !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -134,24 +141,7 @@
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: glow 4s infinite alternate, streaky-move 4s linear infinite;
-}
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 
-                 0 0 10px rgba(255, 255, 255, 0.2), 
-                 0 0 20px rgba(255, 255, 255, 0.2), 
-                 0 0 40px rgba(255, 255, 255, 0.2), 
-                 0 0 60px rgba(255, 255, 255, 0.2);
-  }
-  100% {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 
-                 0 0 10px rgba(255, 255, 255, 0.4), 
-                 0 0 20px rgba(255, 255, 255, 0.6), 
-                 0 0 40px rgba(255, 255, 255, 0.8), 
-                 0 0 60px rgba(255, 255, 255, 1);
-  }
+  animation: streaky-move 4s linear infinite;
 }
 
 @keyframes streaky-move {
