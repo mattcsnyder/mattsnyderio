@@ -4,7 +4,6 @@ import Lootbox from './Lootbox';
 import LootboxProgressBar from './LootboxProgressBar';
 import ProgressButton from './progressButton';
 import ProgressVideo from './ProgressVideo';
-import Confetti from 'react-confetti';
 import { technologySentences } from '../data';
 import { logEvent } from "../analytics"; // Import logEvent from analytics.js
 
@@ -88,7 +87,7 @@ const LootboxContainer = ({ experiences }) => {
     const titleStyle = {
         fontSize: '24px',
         fontWeight: 'bold',
-        color: setNewIcon ? 'gold' : 'black',
+        color: 'white',
         textShadow: foundTechnologies.has(winningIconName) 
             ? '0 0 5px grey' 
             : '0 0 5px gold',
@@ -98,31 +97,56 @@ const LootboxContainer = ({ experiences }) => {
     return (
         <>
             {/* Confetti Effect */}
-            {setNewIcon && (
-                <Confetti
-                    width={window.innerWidth}
-                    height={window.innerHeight}
-                    recycle={false}
-                    numberOfPieces={200}
-                    colors={['#FFD700', '#FFD700', '#FFF8DC']}
-                />
-            )}
-
             {isContainerOpen && (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
+                    <div style={{
+                        width: '100%',
+                        textAlign: 'center',
+                        padding: '8px 12px 0px',
+                    }}>
+                        <h2 style={{
+                            fontSize: '13px',
+                            fontWeight: 'bold',
+                            color: '#FFD700',
+                            letterSpacing: '0.05em',
+                            textTransform: 'uppercase',
+                            textShadow: '0 0 8px rgba(255, 215, 0, 0.5)',
+                            margin: 0,
+                            lineHeight: '1.3',
+                        }}>Roll for Matt's Tech Lootbox</h2>
+                        <p style={{
+                            fontSize: '11px',
+                            color: '#a8d5a2',
+                            margin: '2px 0 0',
+                            letterSpacing: '0.03em',
+                        }}>70% gets a prize!</p>
+                    </div>
                     <div
                         style={{
+                            maxHeight: showText ? '120px' : '0px',
                             opacity: showText ? 1 : 0,
-                            transform: showText ? 'translateY(0) scale(1.5)' : 'translateY(20px) scale(0)',
-                            transition: 'opacity 0.5s ease, transform 0.5s ease',
-                            marginBottom: '10px',
-                            height: '40px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                            overflow: 'hidden',
+                            transition: 'max-height 0.5s ease, opacity 0.4s ease',
+                            marginTop: '8px',
+                            marginBottom: '2px',
+                            width: '200px',
+                            background: 'rgba(0,0,0,0.35)',
+                            borderRadius: '8px',
+                            padding: showText ? '8px 12px' : '0px 12px',
+                            textAlign: 'center',
+                            pointerEvents: 'none',
                         }}
                     >
-                        <h2 style={titleStyle}>{winningIconName}</h2>
+                        <h2 style={{ ...titleStyle, margin: '0 0 4px' }}>{winningIconName}</h2>
+                        <p style={{
+                            opacity: showText ? 1 : 0,
+                            transition: 'opacity 0.5s ease',
+                            transitionDelay: showText ? '1s' : '0s',
+                            fontSize: '12px',
+                            color: '#e0e0e0',
+                            margin: 0,
+                            lineHeight: '1.4',
+                        }}>{randomSentence}</p>
                     </div>
                     
                     {/* Christmas Box with hover scaling effect */}
@@ -131,6 +155,7 @@ const LootboxContainer = ({ experiences }) => {
                             transform: isScaled ? 'scale(1.5)' : 'scale(1)',
                             transition: 'transform 0.3s ease',
                             cursor: 'pointer',
+                            paddingTop: '8px',
                         }}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
@@ -162,32 +187,6 @@ const LootboxContainer = ({ experiences }) => {
                         </div>
                     )}
 
-                    {/* Bottom text displaying random sentence */}
-                    <div
-                        class="rounded-lg bg-gray-600 bg-opacity-90"
-                        style={{
-                            height: showText ? 'auto' : '0px',
-                            overflow: 'hidden',
-                            transition: 'height 0.5s ease',
-                            marginTop: '20px',
-                            width: '200px',
-                            textAlign: 'center',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            padding: showText ? '1vw' : '0px',
-                        }}
-                    >
-                    <h2
-                        style={{
-                            opacity: showText ? 1 : 0,
-                            transition: 'opacity 0.5s ease',
-                            transitionDelay: showText ? '1s' : '0s',
-                        }}
-                    >
-                        {randomSentence}
-                    </h2>    
-                </div>
 
                     {/* +1 Icon Animation */}
                     {setNewIcon && (

@@ -13,8 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = ({ active, setActive }) => {
-  const colors = ["#FF5733", "#33FF57", "#3357FF", "#F0E68C", "#8A2BE2", "#FF69B4"];
-  const words = ["unique", "captivating", "exhilarating"];
+  const colors = ["#60a5fa", "#ffffff", "#f87171"];
+  const words = ["unique", "captivating", "exhilarating", "innovative", "purposeful", "elegant", "bold"];
 
   const handleButtonClick = (anchor) => {
     const targetElement = document.getElementById(anchor);
@@ -63,46 +63,45 @@ const Hero = ({ active, setActive }) => {
             </div>
             
             {/* Right Column */}
-            <div className="z-20 bg-gray-800 bg-opacity-75 p-[5vw] md:p-[2vw] mt-[1vw] md:mt-[5vw] mx-[3vw] rounded-md flex flex-col items-start gap-8">
-              {/* Welcome/Rotating Words/Solutions Message */}
-              <div className="w-full flex flex-col items-center md:items-start text-center md:text-left">
-                <div className="flex flex-row items-center gap-6 w-full justify-center md:justify-start">
-                  <div className="font-bold text-[clamp(1.1rem,2vw,2.2rem)] leading-[1.1] streaky-glow text-white whitespace-nowrap">
-                    Welcome, I craft
-                  </div>
-                  <div className="font-bold text-left text-[clamp(1.1rem,2vw,2.2rem)] text-white relative">
-                    <HeroChangingWords words={words} colors={colors} />
-                  </div>
+            <div className="z-20 bg-gray-800 bg-opacity-75 p-[5vw] md:p-[2vw] mt-[1vw] md:mt-[5vw] mx-[3vw] rounded-md flex flex-row items-center gap-6">
+              {/* Welcome text */}
+              <div className="flex-1 flex flex-col items-center justify-center text-center">
+                <div className="font-bold text-[clamp(1.4rem,2.8vw,3rem)] leading-[1.1] streaky-glow text-white whitespace-nowrap">
+                  Welcome, I craft
                 </div>
-                <div className="mt-3 font-bold text-center md:text-left text-[clamp(1rem,1.7vw,1.7rem)] streaky-glow text-white w-full">
+                <div className="mt-3 font-bold text-[clamp(1.4rem,2.8vw,3rem)] text-white relative flex justify-center w-full">
+                  <HeroChangingWords words={words} colors={colors} />
+                </div>
+                <div className="mt-3 font-bold text-[clamp(1.2rem,2.2vw,2.4rem)] streaky-glow text-white">
                   solutions for the digital world.
                 </div>
               </div>
-              {/* Glass Buttons */}
-              <div className="flex flex-col lg:flex-row gap-2 w-full min-w-0 items-center justify-center">
+
+              {/* Vertical Buttons */}
+              <div className="flex flex-col gap-2 shrink-0">
                 <button
                   onClick={() => handleButtonClick("experience")}
-                  className="bg-gray-900 bg-opacity-60 backdrop-blur-md text-white font-bold py-3 px-2 rounded-2xl border border-white border-opacity-20 hover:bg-gray-800 hover:bg-opacity-80 hover:border-opacity-40 hover:scale-105 hover:-rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full flex items-center justify-center gap-1 group"
+                  className="bg-gray-900 bg-opacity-60 backdrop-blur-md text-white font-bold py-3 px-4 rounded-2xl border border-white border-opacity-20 hover:bg-gray-800 hover:bg-opacity-80 hover:border-opacity-40 hover:scale-105 hover:-rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,0,0,0.4)] flex items-center justify-center gap-2 group"
                 >
                   <FaBriefcase className="text-xl group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-300" />
                   <span className="group-hover:tracking-wider transition-all duration-300 text-[clamp(0.8rem,1.1vw,1.1rem)]">Experience</span>
                 </button>
                 <button
                   onClick={() => handleButtonClick("designs")}
-                  className="bg-gray-900 bg-opacity-60 backdrop-blur-md text-white font-bold py-3 px-2 rounded-2xl border border-white border-opacity-20 hover:bg-gray-800 hover:bg-opacity-80 hover:border-opacity-40 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full flex items-center justify-center gap-1 group"
+                  className="bg-gray-900 bg-opacity-60 backdrop-blur-md text-white font-bold py-3 px-4 rounded-2xl border border-white border-opacity-20 hover:bg-gray-800 hover:bg-opacity-80 hover:border-opacity-40 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,0,0,0.4)] flex items-center justify-center gap-2 group"
                 >
                   <FontAwesomeIcon icon={faPalette} className="text-xl group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
                   <span className="group-hover:tracking-wider transition-all duration-300 text-[clamp(0.8rem,1.1vw,1.1rem)]">Designs</span>
                 </button>
                 <button
                   onClick={() => handleButtonClick("github")}
-                  className="bg-gray-900 bg-opacity-60 backdrop-blur-md text-white font-bold py-3 px-2 rounded-2xl border border-white border-opacity-20 hover:bg-gray-800 hover:bg-opacity-80 hover:border-opacity-40 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,0,0,0.4)] w-full flex items-center justify-center gap-1 group"
+                  className="bg-gray-900 bg-opacity-60 backdrop-blur-md text-white font-bold py-3 px-4 rounded-2xl border border-white border-opacity-20 hover:bg-gray-800 hover:bg-opacity-80 hover:border-opacity-40 hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(0,0,0,0.4)] flex items-center justify-center gap-2 group"
                 >
                   <FaGithub className="text-xl group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
                   <span className="group-hover:tracking-wider transition-all duration-300 text-[clamp(0.8rem,1.1vw,1.1rem)]">GitHub</span>
                 </button>
               </div>
-          </div>
+            </div>
 
           {/* Button Navigation */}
         </div>

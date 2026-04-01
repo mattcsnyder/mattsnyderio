@@ -69,7 +69,7 @@ const Lootbox = ({ onWin }) => {
     };
 
     return (
-        <div class="rounded-lg bg-gray-600 bg-opacity-90" style={{ display: 'flex', justifyContent: 'center', margin: '5px', position: 'relative' }}>
+        <div className="rounded-lg bg-gray-600 bg-opacity-90" style={{ display: 'flex', justifyContent: 'center', margin: '5px', position: 'relative' }}>
             <div
                 className={`lootbox ${animationClass}`}
                 onClick={handleFlash}

@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { 
-  default as img1 
+import {
+  default as img1
 } from '../assets/designs/RestuarantIQ-newsletter.png';
-import { 
-  default as img2 
+import {
+  default as img2
 } from '../assets/designs/RestuarantIQ.png';
-import { 
-  default as img3 
+import {
+  default as img3
 } from '../assets/designs/SafeWithSounds.png';
-import { 
-  default as img4 
+import {
+  default as img4
 } from '../assets/designs/SafeWithSounds-Presave.png';
-import { 
-  default as img5 
+import {
+  default as img5
 } from '../assets/designs/RestuarantIQ-services.png';
-import { 
-  default as img6 
+import {
+  default as img6
 } from '../assets/designs/RestuarantIQ-menuanalytics.png';
 import { default as img8 } from '../assets/designs/starfetcher_dashboard.png';
 
@@ -44,65 +44,78 @@ const DesignsGallery = ({ showNavButtons = true }) => {
 
   return (
     <div className="w-full flex justify-center py-5">
-      <div className="w-full max-w-7xl flex flex-col items-center">
-        {/* Section Title with motion animation and glowing shadow */}
+      <div className="w-full flex flex-col items-center">
+        {/* Section Title + Navigation */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: 'easeInOut' }}
-          className="xs:text-left xs:px-20 sm:px-20 w-full"
+          className="w-full flex items-center justify-center gap-8 px-6 mb-4"
         >
-          <h2
-            className="text-2xl text-center xs:text-3xl sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_20px_rgba(192,64,255,0.9)] mb-10"
-          >
-            Designs
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold filter drop-shadow-[0_0_20px_rgba(192,64,255,0.9)]">
+            Product / Web Designs
           </h2>
-        </motion.div>
-        {showNavButtons && (
-          <div className="flex flex-row items-center justify-center w-full gap-4 mb-6">
-            <button
-              onClick={handlePrevClick}
-              className="w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 transition flex items-center justify-center"
-              aria-label="Previous Design"
-            >
-              <FaArrowLeft />
-            </button>
-            <button
-              onClick={handleNextClick}
-              className="w-12 h-12 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 transition flex items-center justify-center"
-              aria-label="Next Design"
-            >
-              <FaArrowRight />
-            </button>
-          </div>
-        )}
-        <div className="flex-1 flex flex-col items-center w-full">
-          <motion.div
-            key={activeIndex}
-            className="flex items-center justify-center w-full"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="w-full max-w-5xl h-[220px] md:h-[320px] lg:h-[400px] xl:h-[500px] flex flex-col items-center justify-start bg-black/10 rounded-2xl border border-white border-opacity-30 px-2 sm:px-8 py-4 mx-4" style={{ boxShadow: '0 4px 32px 0 rgba(0,0,0,0.15)' }}>
-              <div className="text-lg md:text-2xl font-semibold text-white text-center mb-2">
-                {designs[activeIndex].title}
+
+          {showNavButtons && (
+            <div className="flex items-center gap-4">
+              <button
+                onClick={handlePrevClick}
+                className="w-10 h-10 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 transition flex items-center justify-center flex-shrink-0"
+                aria-label="Previous Design"
+              >
+                <FaArrowLeft />
+              </button>
+
+              <div className="flex items-center gap-2">
+                {designs.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    aria-label={`Go to design ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === activeIndex
+                        ? 'w-3 h-3 bg-white'
+                        : 'w-2 h-2 bg-gray-500 hover:bg-gray-300'
+                    }`}
+                  />
+                ))}
               </div>
-              <div className="flex-1 w-full flex items-center justify-center overflow-hidden">
-                <img
-                  src={designs[activeIndex].image}
-                  alt={designs[activeIndex].title}
-                  className="h-full w-auto max-w-full object-contain rounded-2xl"
-                  style={{ maxHeight: '100%' }}
-                />
-              </div>
+
+              <button
+                onClick={handleNextClick}
+                className="w-10 h-10 bg-gray-800 text-white rounded-full shadow-lg hover:bg-gray-700 transition flex items-center justify-center flex-shrink-0"
+                aria-label="Next Design"
+              >
+                <FaArrowRight />
+              </button>
             </div>
-          </motion.div>
+          )}
+        </motion.div>
+
+        {/* Design title */}
+        <p className="text-white/70 text-sm mb-3 text-center">
+          {designs[activeIndex].title}
+        </p>
+
+        {/* Full-width image — grid stacking keeps container sized during crossfade */}
+        <div className="w-full grid">
+          <AnimatePresence>
+            <motion.img
+              key={activeIndex}
+              src={designs[activeIndex].image}
+              alt={designs[activeIndex].title}
+              className="w-full h-auto object-contain"
+              style={{ gridArea: '1 / 1' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            />
+          </AnimatePresence>
         </div>
       </div>
     </div>
   );
 };
 
-export default DesignsGallery; 
+export default DesignsGallery;

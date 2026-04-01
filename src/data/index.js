@@ -30,6 +30,67 @@ export const navLinks = [
 
 const latestExperiences = [
   {
+    title: "MuseumIQ",
+    description: "AI-powered collections and operational management for museums, centralizing artifacts, exhibits, and institutional workflows in one system.",
+    details: "MuseumIQ was built to replace the fragmented mix of spreadsheets, legacy databases, and paper-based systems that most museum teams still rely on. The platform gives staff a single workspace to catalog artifacts with rich metadata, manage active and planned exhibits, coordinate object loans, track condition reports, and generate operational reports for leadership and funders. AI layers on top of the core data to assist with automated tagging, provenance research, and surfacing collection relationships that would otherwise take hours of manual cross-referencing. For institutions dealing with thousands of objects, MuseumIQ dramatically reduces the time between acquisition and a fully documented, searchable record.",
+    finalNote: "Currently deployed with active museum clients managing live collections.",
+    icons: [
+      { name: "FaReact", label: "React", description: "Built a multi-tenant dashboard with React, giving museum staff a clean, fast interface for managing collections, exhibits, and operations across departments." },
+      { name: "FaGolang", label: "Go", description: "Engineered the backend in Go to handle high-volume catalog ingestion, complex nested search queries, and real-time exhibit status updates at scale." },
+      { name: "FaDatabase", label: "PostgreSQL", description: "Designed a flexible multi-tenant schema in PostgreSQL supporting rich artifact metadata, object relationship graphs, and strict institutional data partitioning." },
+      { name: "FaBrain", label: "AI", description: "Integrated AI-assisted tagging, provenance lookup, and collection intelligence to reduce manual cataloging effort and surface insights automatically." },
+      { name: "FaAws", label: "AWS", description: "Deployed on AWS with S3 for high-res media storage, Lambda for async processing jobs, and CloudFront for fast global delivery of collection assets." },
+    ],
+  },
+  {
+    title: "Snydex Invoice",
+    description: "Snydex Invoice is a modern billing and document workflow platform designed to simplify how businesses generate, manage, and track invoices. It focuses on turning fragmented billing processes into a streamlined, reliable system.",
+    details: "The platform is built with React for a clean user interface, Go and Node.js for backend services, and PostgreSQL for managing financial data and document structures. Developing Snydex Invoice involved creating flexible workflows that support different billing scenarios while maintaining consistency and accuracy.",
+    finalNote: "Snydex Invoice is designed to reduce administrative overhead and improve clarity in financial operations. Each feature focuses on making billing more structured, automated, and easy to manage at scale.",
+    icons: [
+      { name: "FaReact", label: "React", description: "Built a React-based invoice editor and client dashboard with live preview, letting users design, send, and track documents in real time." },
+      { name: "FaGolang", label: "Go", description: "Used Go to power PDF generation, billing schedule automation, and webhook handling for payment status updates reliably at scale." },
+      { name: "FaDatabase", label: "PostgreSQL", description: "Stored invoice records, client data, and full payment history in PostgreSQL with versioning to support audit trails and dispute resolution workflows." },
+      { name: "FaNodeJs", label: "Node.js", description: "Integrated Node.js for third-party payment gateway connections and automated email notification pipelines, keeping the billing loop closed end to end." },
+    ],
+  },
+  {
+    title: "WeedBuddy",
+    description: "WeedBuddy is a retail operations platform built for dispensaries navigating complex compliance and day-to-day workflows. It brings together product tracking, documentation, and operational processes into a single, structured system, helping teams stay organized while meeting strict regulatory requirements.",
+    details: "The platform uses React for a responsive, intuitive interface, Go for a fast and reliable backend, and PostgreSQL for structured data management. AWS supports scalable infrastructure to ensure the system performs consistently as operations grow. Building WeedBuddy required designing workflows that mirror real dispensary operations while maintaining compliance at every step.",
+    finalNote: "WeedBuddy is designed to reduce friction in an industry where mistakes are costly. Every feature focuses on clarity, traceability, and giving operators confidence in their day-to-day processes.",
+    icons: [
+      { name: "FaReact", label: "React", description: "Designed a fast, clean React POS-adjacent dashboard that budtenders and managers can navigate quickly during high-traffic retail hours on any device." },
+      { name: "FaGolang", label: "Go", description: "Built the compliance and inventory engine in Go, ensuring product tracking, batch documentation, and reporting workflows execute accurately and without delay." },
+      { name: "FaDatabase", label: "PostgreSQL", description: "Modeled inventory, compliance records, and full transaction history in PostgreSQL with immutable audit trails structured for regulatory review." },
+      { name: "FaAws", label: "AWS", description: "Deployed on AWS with encrypted storage and strict access controls to meet the data security standards required in regulated cannabis markets." },
+    ],
+  },
+  {
+    title: "RestaurantIQ",
+    description: "RestaurantIQ is an operational intelligence platform built for hospitality teams managing fast-paced, multi-location environments. It centralizes workflows, documentation, and compliance processes, giving operators a clearer view of how their business runs day to day.",
+    details: "The platform is built with React for a clean and accessible user experience, Go for backend performance, and PostgreSQL for managing structured operational data. AWS provides the infrastructure needed to support multiple locations and continuous usage. The challenge behind RestaurantIQ was translating real-world restaurant operations into systems that feel natural to use without slowing teams down.",
+    finalNote: "RestaurantIQ is designed to bring consistency and visibility to operations. Each feature is focused on helping teams stay aligned, reduce errors, and operate more efficiently across locations.",
+    icons: [
+      { name: "FaReact", label: "React", description: "Built an intuitive React interface optimized for fast-paced hospitality environments, fully usable on tablets and mobile devices by floor and kitchen staff." },
+      { name: "FaGolang", label: "Go", description: "Used Go to build a reliable backend that handles real-time task updates, shift handoffs, and compliance log writes with minimal latency under load." },
+      { name: "FaDatabase", label: "PostgreSQL", description: "Structured multi-location PostgreSQL schemas to support franchise-style deployments with granular role-based access across ownership groups and regions." },
+      { name: "FaAws", label: "AWS", description: "Hosted on AWS with auto-scaling configured to absorb variable restaurant traffic patterns and maintain uptime during peak service hours." },
+    ],
+  },
+  {
+    title: "NewsIQ",
+    description: "NewsIQ is an AI-powered editorial platform designed to help teams research, structure, and publish content more efficiently. It supports ongoing publishing workflows by turning large amounts of information into organized, actionable insights.",
+    details: "The platform uses React for a flexible interface, Go for backend processing, and PostgreSQL for managing structured content and metadata. AI is integrated directly into the workflow, helping with research, summarization, and content generation. Building NewsIQ involved creating systems that balance automation with editorial control, allowing teams to move faster without losing quality.",
+    finalNote: "NewsIQ is designed for teams that publish consistently and need better tools to manage information. Each feature focuses on reducing friction in the content pipeline while improving output quality.",
+    icons: [
+      { name: "FaReact", label: "React", description: "Built a React editorial workspace with a focused writing environment, drag-and-drop story pipeline, and team assignment board for managing active coverage." },
+      { name: "FaBrain", label: "AI", description: "Integrated AI throughout the editorial workflow — from source summarization and structure suggestions to headline generation and coverage gap detection." },
+      { name: "FaGolang", label: "Go", description: "Built a Go backend to handle content ingestion, external source aggregation, real-time collaborative editing state, and publication scheduling." },
+      { name: "FaDatabase", label: "PostgreSQL", description: "Designed a PostgreSQL content store with full versioning, tag taxonomy, and publication state management to support complex multi-stage editorial workflows." },
+    ],
+  },
+  {
     title: "WeatherOrNot",
     description: `
      WeatherOrNot is a travel platform that combines GPT-powered weather forecasting with trip planning. It helps users find trips that align with good weather and affordable travel deals. The goal is to make planning simple while encouraging exploration.
@@ -66,15 +127,9 @@ const latestExperiences = [
   },
   {
     title: "Starfetcher",
-    description: `
-     Starfetcher is a platform designed for a retro online game I enjoyed growing up. It allows users to log in, set preferences, and explore features tailored to their likes and dislikes. The goal was to create an intuitive experience that feels personal and engaging.
-    `,
-    details: `
-     The project uses React for the frontend, Python for web scraping, Golang for a fast backend, and AWS for scalable hosting. Every technical choice was made to ensure the platform performs well and adapts to user needs.
-    `,
-    finalNote: `
-     Starfetcher reflects my focus on building systems that connect with users. Each feature is built with purpose, blending technology with user feedback to create a meaningful experience.
-    `,
+    description: "StarFetcher is a real-time data platform built around tracking and delivering time-sensitive information in an interactive way. It allows users to customize their experience, follow live updates, and interact with data that is constantly changing.",
+    details: "The platform uses React for a dynamic frontend experience, Python for data ingestion and scraping, Go for high-performance backend services, and AWS for scalable infrastructure. Building StarFetcher required handling continuous data updates, optimizing performance, and designing systems that respond quickly to user input.",
+    finalNote: "StarFetcher is designed to feel fast, responsive, and personal. Each feature is built around delivering relevant information at the right time, creating an experience that keeps users engaged.",
     photo: starfetcher_mobile, // Replace with actual photo path
     icons: [
       {
@@ -129,6 +184,52 @@ const IconShadows = {
 };
 
 const experiences = [
+  {
+    title: "Founder & Full Stack Engineer",
+    company_name: "Snydex Platforms",
+    date: "Jan 2024 - Current",
+    location: "New York, NY",
+    details: [
+      "Built and operated a portfolio of SaaS products across multiple industries (museum operations, retail analytics, and data platforms), taking products from 0 → production with real users.",
+      "Architected end-to-end systems across React / Next.js, Go, Python, and PostgreSQL, designing services that handle high-volume ingestion, real-time querying, and tenant-isolated data access.",
+      "Built a shared platform layer for rapid product development, including reusable patterns for API design, data modeling, ingestion pipelines, and authentication across multiple applications.",
+      "Implemented logging, monitoring, and alerting across services to maintain system reliability, debug production issues, and support 99%+ uptime across platforms.",
+      "Designed and implemented distributed data pipelines that ingest and normalize thousands of records daily, enabling consistent analytics and search across products.",
+      "Developed multi-tenant system architecture with role-based access control, ensuring secure data partitioning and flexible permissioning across organizations.",
+      "Led infrastructure design and deployment using AWS (Lambda, EC2, S3) and Cloudflare (DNS, caching, edge routing), optimizing for performance, cost efficiency, and high availability.",
+      "Introduced caching, snapshotting, and data versioning strategies to reduce redundant computation and improve API response times across platforms.",
+      "Established observability practices, including structured logging, metrics, and alerting, to improve system reliability and reduce time-to-resolution for production issues.",
+      "Established internal tooling and CI/CD workflows to standardize development and deployment, enabling faster iteration across multiple codebases.",
+      "Partnered directly with early users to define product requirements, translating operational workflows into scalable, production-ready systems.",
+    ],
+    icons: [
+      {
+        name: "FaReact",
+        label: "React / Next.js",
+        description: "Shipped full-stack SaaS products from 0 → production using React and Next.js, building multi-tenant dashboards across museum operations, retail analytics, and data platforms with real paying users."
+      },
+      {
+        name: "FaGolang",
+        label: "Go",
+        description: "Engineered backend services in Go that power high-volume data ingestion, real-time querying, and tenant-isolated APIs — forming the core of a shared platform layer reused across all Snydex products."
+      },
+      {
+        name: "FaPython",
+        label: "Python",
+        description: "Designed and ran distributed data pipelines in Python that ingest and normalize thousands of records daily, enabling consistent analytics, search, and reporting across every product in the portfolio."
+      },
+      {
+        name: "FaDatabase",
+        label: "PostgreSQL",
+        description: "Architected multi-tenant PostgreSQL schemas with role-based access control, building secure data partitioning and flexible permissioning that scales cleanly across organizations without schema duplication."
+      },
+      {
+        name: "FaAws",
+        label: "AWS",
+        description: "Owned infrastructure design and deployment across AWS (Lambda, EC2, S3) and Cloudflare (DNS, caching, edge routing), keeping all platforms at 99%+ uptime while optimizing for cost and performance."
+      }
+    ]
+  },
   {
     title: "Software Engineer, ML Platforms",
     company_name: "Flatiron Health",

@@ -1,67 +1,48 @@
 import React from 'react';
 
 const ChangingWords = ({ words, colors }) => {
-  const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
+  const slotDuration = 3; // seconds each word is active
+  const totalDuration = words.length * slotDuration;
+  const slotPct = 100 / words.length;
 
   return (
-    <div className="changing-words streaky-glow">
+    <div className="changing-words">
       {words.map((word, index) => (
         <span
           key={index}
-          className={`word`}
-          style={{ color: getRandomColor() }}
+          className="word"
+          style={{
+            color: colors[index % colors.length],
+            animation: `fadeWords ${totalDuration}s linear ${index * slotDuration}s infinite both`,
+          }}
         >
           {word}
         </span>
       ))}
-      <style jsx>{`
+      <style>{`
         .changing-words {
           display: flex;
           position: relative;
           white-space: nowrap;
           min-width: 200px;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: center;
           height: 1em;
         }
 
         .changing-words .word {
           position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
           opacity: 0;
-          animation: fadeWords 6s linear infinite 0s;
-        }
-
-        .changing-words .word:nth-child(1) {
-          animation-delay: 0s;
-        }
-
-        .changing-words .word:nth-child(2) {
-          animation-delay: 2s;
-        }
-
-        .changing-words .word:nth-child(3) {
-          animation-delay: 4s;
         }
 
         @keyframes fadeWords {
-          0% {
-            opacity: 0;
-            transform: translateY(100%);
-          }
-          10% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          25% {
-            opacity: 1;
-          }
-          35% {
-            opacity: 0;
-            transform: translateY(-100%);
-          }
-          100% {
-            opacity: 0;
-          }
+          0%                          { opacity: 0; }
+          ${slotPct * 0.15}%          { opacity: 1; }
+          ${slotPct * 0.75}%          { opacity: 1; }
+          ${slotPct}%                 { opacity: 0; }
+          100%                        { opacity: 0; }
         }
       `}</style>
     </div>
