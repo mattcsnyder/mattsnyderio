@@ -8,6 +8,7 @@ import ExperienceDetailPanel from './ExperienceDetailPanel'; // Import the new c
 
 const cardStyles = {
   "Snydex Platforms": { gradient: "bg-gradient-to-br from-sky-600 to-sky-200", border: "border-sky-300", shadow: "shadow-[0_0_20px_rgba(56,189,248,0.8)]" },
+  "Matt's SaaS Services": { gradient: "bg-gradient-to-br from-green-900 to-green-700", border: "border-yellow-400", shadow: "shadow-[0_0_20px_rgba(250,204,21,0.7)]" },
   "Flatiron Health": { gradient: "bg-gradient-to-b from-blue-900 via-indigo-900 to-purple-950", border: "border-purple-500", shadow: "shadow-[0_0_24px_rgba(139,92,246,0.9)]" },
   "Arizent": { gradient: "bg-gradient-to-tr from-rose-950 via-red-800 to-orange-900", border: "border-rose-400", shadow: "shadow-[0_0_24px_rgba(244,63,94,0.9)]" },
   "Freelance": { gradient: "bg-gradient-to-bl from-emerald-950 via-green-800 to-teal-900", border: "border-emerald-400", shadow: "shadow-[0_0_24px_rgba(52,211,153,0.9)]" },
@@ -63,13 +64,11 @@ const Experience = () => {
             return (
               <div
                 className={`p-4 cursor-pointer border-l-4 transition duration-300 ease-in-out rounded-lg ${snydexTheme.gradient} ${
-                  snydex === selectedExperience
+                  selectedExperience.title === "Latest"
                     ? `text-white ${snydexTheme.border} ${snydexTheme.shadow}`
-                    : openedExperiences.has(snydex?.title)
-                    ? `text-white ${snydexTheme.border} shadow-md`
                     : 'text-white border-transparent'
                 } hover:text-white hover:${snydexTheme.border} hover:${snydexTheme.shadow}`}
-                onClick={() => handleSelectExperience(snydex)}
+                onClick={() => handleSelectExperience({ title: "Latest", company_name: "Snydex Platforms", date: "Jan 2024 - Current" })}
               >
                 <h3 className="text-xl sm:text-3xl md:text-4xl font-bold text-center">
                   Snydex Platforms
@@ -80,26 +79,6 @@ const Experience = () => {
               </div>
             );
           })()}
-
-          {/* "SaaS Services" Section */}
-          <div
-            className={`p-4 cursor-pointer border-l-4 transition duration-300 ease-in-out rounded-lg ${
-              "Latest" === selectedExperience.title
-                ? 'bg-green-800 text-yellow-400 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.7)]'
-                : 'bg-green-900 text-yellow-300 border-yellow-600'
-            } hover:text-yellow-400 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.7)]`}
-            onClick={() =>
-              handleSelectExperience({ title: "Latest", company_name: "", date: "" })
-            }
-
-          >
-            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-center">
-              Matt's SaaS Services
-            </h3>
-            <p className="text-sm sm:text-base md:text-lg text-center mt-2">
-              October 2023 - Present
-            </p>
-          </div>
 
           {/* Experience Cards */}
           {(() => {

@@ -65,15 +65,22 @@ const Hero = ({ active, setActive }) => {
             {/* Right Column */}
             <div className="z-20 bg-gray-800 bg-opacity-75 p-[5vw] md:p-[2vw] mt-[1vw] md:mt-[5vw] mx-[3vw] rounded-md flex flex-row items-center gap-6">
               {/* Welcome text */}
-              <div className="flex-1 flex flex-col items-center justify-center text-center">
-                <div className="font-bold text-[clamp(1.4rem,2.8vw,3rem)] leading-[1.1] streaky-glow text-white whitespace-nowrap">
-                  Welcome, I craft
+              <div className="flex-1 flex flex-col items-start justify-center text-left gap-4">
+                <div>
+                  <div className="font-bold italic text-[clamp(1.1rem,1.8vw,2rem)] leading-[1.2] text-white/60 tracking-wide" style={{ fontFamily: 'Georgia, serif' }}>
+                    Welcome.
+                  </div>
+                  <div className="mt-2 italic text-[clamp(1rem,1.5vw,1.6rem)] leading-[1.4] text-white" style={{ fontFamily: 'Georgia, serif' }}>
+                    I build platforms that take concepts from zero to production, designed for real-world use.
+                  </div>
                 </div>
-                <div className="mt-3 font-bold text-[clamp(1.4rem,2.8vw,3rem)] text-white relative flex justify-center w-full">
-                  <HeroChangingWords words={words} colors={colors} />
-                </div>
-                <div className="mt-3 font-bold text-[clamp(1.2rem,2.2vw,2.4rem)] streaky-glow text-white">
-                  solutions for the digital world.
+                <div>
+                  <div className="font-bold italic text-[clamp(0.9rem,1.3vw,1.3rem)] text-white/60 tracking-wide mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+                    Skills.
+                  </div>
+                  <div className="italic text-[clamp(1rem,1.5vw,1.6rem)] leading-[1.4] text-white" style={{ fontFamily: 'Georgia, serif' }}>
+                    Go, Python, React, Next.js, PostgreSQL, AWS, TypeScript, Node.js, Docker, Agents, CI/CD.
+                  </div>
                 </div>
               </div>
 

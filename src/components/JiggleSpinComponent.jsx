@@ -2,7 +2,7 @@ import React from 'react';
 import useEggHoverAnimation from './useEggHoverAnimation';
 import { useEggContext } from '../context/EggContext'; // Import the Egg context
 
-const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)", eggColor = "yellow" }) => {
+const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)", eggColor = "yellow", noJiggle = false }) => {
   const {
     hovering,
     eggVisible,
@@ -25,12 +25,13 @@ const JiggleSpinComponent = ({ children, shadowColor = "rgba(255, 215, 0, 0.8)",
   return (
     <div className="relative h-auto flex items-center">
       <div
-        className={`relative h-auto ${hovering ? "jiggle-animation" : ""}`} // Apply jiggle animation
+        className={`relative h-auto ${!noJiggle && hovering ? "jiggle-animation" : ""}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{
-          filter: hovering ? `drop-shadow(0 0 20px ${shadowColor})` : 'none',
-          transition: 'filter 0.3s ease',
+          filter: hovering ? `drop-shadow(0 0 ${noJiggle ? '35px' : '20px'} ${shadowColor})` : 'none',
+          transform: noJiggle && hovering ? 'scale(1.05)' : undefined,
+          transition: 'filter 0.3s ease, transform 0.3s ease',
         }}
       >
         {children}

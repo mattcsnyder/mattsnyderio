@@ -2,7 +2,7 @@ import {
   arizent,
   bethere,
   paywall,
-  starfetcher_dashboard, brightspot, flatiron_logo,arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo, starfetcher_mobile, weatherornot_laptop
+  starfetcher_dashboard, brightspot, flatiron_logo, snydexplatforms_logo, arizent_logo,freelance_logo,rutgers_logo,newbrunswick_logo, starfetcher_mobile, weatherornot_laptop
 } from "../assets";
 
 import {
@@ -189,6 +189,7 @@ const experiences = [
     company_name: "Snydex Platforms",
     date: "Jan 2024 - Current",
     location: "New York, NY",
+    companyLogo: snydexplatforms_logo,
     details: [
       "Built and operated a portfolio of SaaS products across multiple industries (museum operations, retail analytics, and data platforms), taking products from 0 → production with real users.",
       "Architected end-to-end systems across React / Next.js, Go, Python, and PostgreSQL, designing services that handle high-volume ingestion, real-time querying, and tenant-isolated data access.",

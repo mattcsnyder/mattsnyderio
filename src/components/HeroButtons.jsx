@@ -1,6 +1,6 @@
 import React from "react";
 import JiggleSpinComponent from "./JiggleSpinComponent";
-import { mattsnyderio } from "../assets"; // Ensure the path to your image is correct
+import { matt_headshot_2026, matt_headshot_2026_live } from "../assets";
 import { logEvent } from "../analytics"; // Import logEvent from analytics.js
 import { HashLink as Link } from "react-router-hash-link"; // For smooth scrolling
 
@@ -30,18 +30,21 @@ const HeroButtons = ({active, setActive}) => {
         </button>
       </div>
 
-      {/* Center Image with JiggleSpinComponent */}
+      {/* Center Image */}
       <div className="flex justify-center">
-        <JiggleSpinComponent>
-          <img
-            src={mattsnyderio}
-            alt="Center Image"
-            className="w-96 h-auto"
-            style={{
-              filter: "drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))",
-              transition: "transform 0.3s ease, filter 0.3s ease",
-            }}
-          />
+        <JiggleSpinComponent noJiggle>
+          <div className="relative w-96 group">
+            <img
+              src={matt_headshot_2026_live}
+              alt="Center Image Live"
+              className="w-full h-auto transition-opacity duration-700 group-hover:opacity-0"
+            />
+            <img
+              src={matt_headshot_2026}
+              alt="Center Image"
+              className="absolute inset-0 w-full h-auto transition-opacity duration-700 opacity-0 group-hover:opacity-100"
+            />
+          </div>
         </JiggleSpinComponent>
       </div>
 
