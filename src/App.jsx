@@ -9,10 +9,12 @@ import { EggProvider } from "./context/EggContext"; // Import EggProvider
 import RecentProjects from "./components/RecentProjects";
 import DesignsGallery from "./components/DesignsGallery";
 import RecruiterBanner from "./components/RecruiterBanner";
+import AboutMeModal from "./components/AboutMeModal";
 
 const App = () => {
   const wrapperRef = useRef(null);
   const [active, setActive] = useState("hero"); // State to track the active navigation item
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   // useEffect to initialize Google Analytics and log the initial page view
   useEffect(() => {
@@ -30,7 +32,7 @@ const App = () => {
             <section id="hero" className="z-40">
               <Hero active={active} setActive={setActive} scrollContainer={wrapperRef} />
             </section>
-            <RecruiterBanner />
+            <RecruiterBanner onReadMore={() => setAboutOpen(true)} />
             <section id="experience" className="relative z-30 mb-8 bg-primary">
               <Experience />
             </section>
@@ -50,6 +52,7 @@ const App = () => {
               <ProgressEggHunt />
             </section>
           </main>
+          {aboutOpen && <AboutMeModal onClose={() => setAboutOpen(false)} />}
         </div>
       </BrowserRouter>
     </EggProvider>
