@@ -8,7 +8,6 @@ import { initGA, logPageView } from "./analytics";
 import { EggProvider } from "./context/EggContext"; // Import EggProvider
 import RecentProjects from "./components/RecentProjects";
 import DesignsGallery from "./components/DesignsGallery";
-import DevPerformancePanel from "./components/DevPerformancePanel";
 import RecruiterBanner from "./components/RecruiterBanner";
 
 const App = () => {
@@ -27,7 +26,6 @@ const App = () => {
       <BrowserRouter>
         <div className="relative z-0 bg-primary">
           <Navbar active={active} setActive={setActive}/>
-          <DevPerformancePanel />
           <main className="wrapper" ref={wrapperRef}>
             <section id="hero" className="z-40">
               <Hero active={active} setActive={setActive} scrollContainer={wrapperRef} />

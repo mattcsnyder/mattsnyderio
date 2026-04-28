@@ -68,11 +68,13 @@ const Navbar = ({ active, setActive }) => {
         </ul>
 
         {/* Right: Gift + mobile hamburger */}
-        <div className="flex items-center gap-4 z-20">
+        <div className="flex items-center gap-3 z-20">
           <EggAnimation
             color={eggAnimation?.color || "yellow"}
             triggerEgg={eggAnimation}
           />
+
+          {menuOpen && <EggProgress eggsFound={[]} />}
 
           <div className="relative">
             <button
@@ -108,13 +110,11 @@ const Navbar = ({ active, setActive }) => {
         >
           <LootboxContainer />
         </div>
-
-        {menuOpen && <EggProgress eggsFound={[]} />}
       </nav>
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="fixed top-12 left-0 w-full z-10 flex flex-col gap-2 px-4 py-4 bg-black/80 md:hidden">
+        <div className="fixed left-0 right-0 top-14 z-40 flex flex-col gap-2 bg-black/90 px-4 py-4 backdrop-blur-sm md:hidden">
           {navLinks.map((nav) => (
             <Link
               key={nav.id}

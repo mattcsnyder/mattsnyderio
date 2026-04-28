@@ -57,7 +57,7 @@ const PhoneHeaderText = ({ onScrollTo, onContactOpen }) => (
       ))}
     </ul>
 
-    <div className="flex flex-wrap gap-3 mt-2">
+    <div className="mt-2 flex flex-wrap justify-center gap-3 sm:justify-start">
       <button
         onClick={() => onScrollTo('designs')}
         className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
@@ -65,16 +65,16 @@ const PhoneHeaderText = ({ onScrollTo, onContactOpen }) => (
         View My Work
       </button>
       <button
-        onClick={onContactOpen}
-        className="bg-transparent hover:bg-blue-600/10 text-blue-400 text-sm font-semibold px-6 py-3 rounded-lg border border-blue-600 transition-colors duration-200"
-      >
-        Get In Touch
-      </button>
-      <button
         onClick={() => onScrollTo('experience')}
         className="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
       >
         My Experience
+      </button>
+      <button
+        onClick={onContactOpen}
+        className="mx-auto bg-transparent hover:bg-blue-600/10 text-blue-400 text-sm font-semibold px-6 py-3 rounded-lg border border-blue-600 transition-colors duration-200 sm:mx-0"
+      >
+        Get In Touch
       </button>
     </div>
   </div>
