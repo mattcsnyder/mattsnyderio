@@ -1,7 +1,8 @@
 export const CHAR_DELAY = 32;
 
 export const MESSAGES = [
-  { side: 'matt',    text: "Hello 👋 you've reached Matt.",                                                                                                                    consecutive: false, typingMs: 800,  pauseAfter: 2200 },
+  { side: 'matt',    text: "Helloooooo 👋",                                                                                                                                    consecutive: false, typingMs: 800,  pauseAfter: 1200 },
+  { side: 'matt',    text: "You've reached Matt",                                                                                                                              consecutive: true,  typingMs: 700,  pauseAfter: 2200 },
   { side: 'visitor', text: "Glad I found your number, I'm actually looking for a software engineer",                                                                           consecutive: false, typingMs: 900,  pauseAfter: 900  },
   { side: 'matt',    text: "You've got the right number 😄, I'm Matt, I build software that runs real businesses end to end 🚀",                                               consecutive: false, typingMs: 1000, pauseAfter: 2200 },
   { side: 'visitor', text: "Okay wait, really? What kind of software are we talking about? 👀",                                                                                consecutive: false, typingMs: 800,  pauseAfter: 900  },
@@ -11,8 +12,9 @@ export const MESSAGES = [
   { side: 'visitor', text: "That sounds like a lot of moving parts, that must've been tough to pull off",                                                                      consecutive: false, typingMs: 900,  pauseAfter: 900  },
   { side: 'matt',    text: "yeah 😄, lots of workflows, edge cases, integrations, scaling early, turning messy operations into clean systems is the part I enjoy most 🧠",    consecutive: false, typingMs: 1200, pauseAfter: 2200 },
   { side: 'visitor', text: "What's your stack for all that?",                                                                                                                  consecutive: false, typingMs: 650,  pauseAfter: 900  },
-  { side: 'matt',    text: "React, Go, PostgreSQL, AWS, frontend, backend, data, infra, you're owning the full system, that's not easy",                                      consecutive: false, typingMs: 1100, pauseAfter: 1200 },
-  { side: 'matt',    text: "it's not, but it lets me move fast and keep everything tight ⚡",                                                                                  consecutive: true,  typingMs: 900,  pauseAfter: 2200 },
+  { side: 'matt',    text: "React, Go, PostgreSQL, AWS, frontend, backend, data, infra",                                                                                      consecutive: false, typingMs: 1100, pauseAfter: 1200 },
+  { side: 'visitor', text: "you're owning the full system, that's not easy",                                                                                                   consecutive: false, typingMs: 800,  pauseAfter: 900  },
+  { side: 'matt',    text: "it's not, but it lets me move fast and keep everything tight ⚡",                                                                                  consecutive: false, typingMs: 900,  pauseAfter: 2200 },
   { side: 'visitor', text: "Where were you before this?",                                                                                                                      consecutive: false, typingMs: 650,  pauseAfter: 900  },
   { side: 'matt',    text: "Flatiron Health, worked on ML Operations for data scientists enabling cancer research 🧬\n\nArizent, helped editors and writers improve content value with integrations like Apple News 📰", consecutive: false, typingMs: 1400, pauseAfter: 2200 },
   { side: 'visitor', text: "That's a really interesting mix of experience",                                                                                                    consecutive: false, typingMs: 750,  pauseAfter: 900  },

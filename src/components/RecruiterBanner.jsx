@@ -12,8 +12,8 @@ const RecruiterBanner = ({ onReadMore }) => (
     className="w-full border-y border-blue-900/40 px-4 py-5 sm:px-6 md:px-16"
     style={{ background: 'linear-gradient(135deg, #000000 0%, #020818 60%, #000d2e 100%)' }}
   >
-    <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] xl:items-start">
-      <div className="min-w-0">
+    <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] xl:items-stretch">
+      <div className="min-w-0 xl:flex xl:items-center">
         <div className="flex flex-col gap-3 text-xs text-slate-400 sm:text-sm">
           <div className="flex flex-wrap items-center gap-2 text-slate-300 sm:flex-nowrap">
             <span className="text-3xl leading-none">👋</span>
