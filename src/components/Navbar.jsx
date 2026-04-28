@@ -35,7 +35,7 @@ const Navbar = ({ active, setActive }) => {
 
   return (
     <div className="relative">
-      <nav className="w-full fixed top-0 z-10 flex items-center justify-between px-6 py-3 bg-gray-900/60">
+      <nav className="w-full fixed top-0 z-50 flex items-center justify-between px-6 py-3 bg-gray-900/60">
 
         {/* Left: Logo */}
         <Link
