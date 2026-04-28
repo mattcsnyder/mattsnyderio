@@ -8,6 +8,7 @@ import { initGA, logPageView } from "./analytics";
 import { EggProvider } from "./context/EggContext"; // Import EggProvider
 import RecentProjects from "./components/RecentProjects";
 import DesignsGallery from "./components/DesignsGallery";
+import RecruiterBanner from "./components/RecruiterBanner";
 
 const App = () => {
   const wrapperRef = useRef(null);
@@ -29,6 +30,7 @@ const App = () => {
             <section id="hero" className="z-40">
               <Hero active={active} setActive={setActive} scrollContainer={wrapperRef} />
             </section>
+            <RecruiterBanner />
             <section id="experience" className="relative z-30 mb-8 bg-primary">
               <Experience />
             </section>
