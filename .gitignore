@@ -61,4 +61,4 @@ temp/
 *.log
 !.npmignore
 package-lock.json
-.vite
+.vite.worktrees/
