@@ -1,16 +1,17 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ExperienceIcons from "./ExperienceIcons";
+import ExperienceIconGrid from "./ExperienceIconGrid";
 
 const ExperienceDetailPanel = ({ selectedExperience, selectedTheme }) => (
   <div className="min-h-[560px]" aria-live="polite">
     <AnimatePresence mode="wait">
       <motion.article
         key={`${selectedExperience.company_name}-${selectedExperience.title}`}
-        initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
-        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.18, ease: "easeInOut" }}
         className={`overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/60 ${selectedTheme.shadow}`}
       >
         <header className={`relative overflow-hidden ${selectedTheme.gradient} p-6 sm:p-8`}>
@@ -43,20 +44,38 @@ const ExperienceDetailPanel = ({ selectedExperience, selectedTheme }) => (
         </header>
 
         <div className="bg-[#0b1020] p-6 sm:p-8">
+          {selectedExperience.overview && (
+            <section className="mb-8 border-b border-white/10 pb-6">
+              <h4 className="mb-3 text-lg font-semibold text-white">
+                {selectedExperience.overviewTitle}
+              </h4>
+              <div className="space-y-3">
+                {selectedExperience.overview.map((paragraph) => (
+                  <p key={paragraph} className="text-sm leading-7 text-slate-300 sm:text-[15px]">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Selected work &amp; impact
+            {selectedExperience.highlightsTitle || "Selected work & impact"}
           </p>
+          {selectedExperience.highlightsLayout === "grid" ? (
+            <ExperienceIconGrid icons={selectedExperience.icons} />
+          ) : (
           <div className="space-y-3">
-            {selectedExperience.icons.map((icon, index) => (
-              <motion.div
+            {selectedExperience.icons.map((icon) => (
+              <div
                 key={`${icon.name}-${icon.label}`}
-                initial={{ opacity: 0, x: 12 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 + index * 0.045, duration: 0.25 }}
                 className="group flex items-start gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.025] p-4 transition-colors hover:border-white/[0.12] hover:bg-white/[0.05]"
               >
                 <div className="flex-shrink-0">
-                  <ExperienceIcons icons={[icon]} className="icon-border" />
+                  <ExperienceIcons
+                    icons={[icon]}
+                    size={selectedExperience.overview ? 48 : 100}
+                    showDescription={!selectedExperience.overview}
+                  />
                 </div>
                 <div className="min-w-0">
                   <h4 className="mb-1 text-sm font-semibold text-white">
@@ -66,9 +85,10 @@ const ExperienceDetailPanel = ({ selectedExperience, selectedTheme }) => (
                     {icon.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
+          )}
         </div>
       </motion.article>
     </AnimatePresence>

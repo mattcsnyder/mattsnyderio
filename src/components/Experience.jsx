@@ -118,15 +118,15 @@ const Experience = () => {
                   onMouseLeave={cancelHoverSelection}
                   onFocus={() => handleSelectExperience(experience, index)}
                   onClick={() => handleSelectExperience(experience, index, true)}
-                  className={`group relative block w-full rounded-2xl border px-5 py-4 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/80 ${
+                  className={`group relative block w-full rounded-2xl border px-5 py-4 text-left transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/80 ${
                     isSelected
-                      ? "translate-x-2 border-white/15 bg-white/[0.08] shadow-xl"
-                      : "border-transparent bg-transparent hover:translate-x-1 hover:border-white/[0.08] hover:bg-white/[0.04]"
+                      ? "border-white/15 bg-white/[0.08] shadow-xl"
+                      : "border-transparent bg-transparent hover:border-white/[0.08] hover:bg-white/[0.04]"
                   }`}
                 >
                   <span
-                    className={`absolute -left-[1px] top-6 h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-[#050816] transition-all duration-300 ${
-                      isSelected ? "scale-125" : "scale-75 opacity-60 group-hover:scale-100"
+                    className={`absolute -left-[1px] top-6 h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-[#050816] transition-opacity duration-200 ${
+                      isSelected ? "opacity-100" : "opacity-60 group-hover:opacity-100"
                     }`}
                     style={{ backgroundColor: theme.accent }}
                   />

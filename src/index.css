@@ -17,20 +17,6 @@ body.modal-open .jiggle-animation {
   animation-play-state: paused !important;
 }
 
-[data-pipeline-paused="true"] *,
-[data-pipeline-paused="true"] animate,
-[data-pipeline-paused="true"] animateMotion {
-  animation-play-state: paused !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pipeline-traveler,
-  [data-pipeline-paused] animate,
-  [data-pipeline-paused] animateMotion {
-    display: none;
-  }
-}
-
 .experience-bubble {
   --bubble-duration: 18s;
   --bubble-delay: 0s;
@@ -760,6 +746,17 @@ body.debug-disable-blur [style*="backdrop-filter"] {
   animation-delay:
     var(--phone-choice-delay, 0ms),
     calc(900ms + var(--phone-glow-delay, 0ms));
+}
+
+/* Avoid continuously repainting blurred glows in the enlarged phone dialog. */
+.phone-intro-surface .phone-question-arrival.phone-choice-glow {
+  animation: phoneMessageArrival 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--phone-choice-delay, 0ms);
+}
+
+.phone-intro-surface .phone-waiting-dot {
+  animation: none;
+  box-shadow: none;
 }
 
 @keyframes phoneTypeCursorBlink {

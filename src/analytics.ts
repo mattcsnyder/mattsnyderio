@@ -7,7 +7,8 @@ if (typeof window !== "undefined" && typeof window.gtag !== "function") {
   };
 }
 
-const GA_ID = import.meta.env.VITE_GA_TRACKING_ID;
+// Google Analytics web stream: mattsnyderio (9790638700).
+const GA_ID = "G-C5Y22VFQS1";
 
 export const initGA = () => {
   if (!GA_ID || document.getElementById("ga-script")) {

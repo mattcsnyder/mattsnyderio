@@ -217,11 +217,13 @@ const experiences = [
       {
         name: "FaPython",
         label: "Python",
+        color: "#FFD43B",
         description: "Designed and ran distributed data pipelines in Python that ingest and normalize thousands of records daily, enabling consistent analytics, search, and reporting across every product in the portfolio."
       },
       {
         name: "FaDatabase",
         label: "PostgreSQL",
+        color: "#74A9CF",
         description: "Architected multi-tenant PostgreSQL schemas with role-based access control, building secure data partitioning and flexible permissioning that scales cleanly across organizations without schema duplication."
       },
       {
@@ -395,6 +397,13 @@ const experiences = [
     location: "New Brunswick, NJ",
     companyLogo: newbrunswick_logo,
     date: "2016 - 2020",
+    highlightsLayout: "grid",
+    overviewTitle: "Computer Science at Rutgers",
+    overview: [
+      "At Rutgers University–New Brunswick, I developed a foundation in computer science while exploring algorithms, AI, infrastructure design, 3D computing, and robot path planning. Through integrated projects, I learned to bring algorithms, databases, and systems together into working software.",
+      "I also had the opportunity to put that education to work in Rutgers’ distance learning department, contributing to software that supported remote courses and seminars. Working on tools used by instructors and students gave me a practical perspective on software development beyond the classroom.",
+    ],
+    highlightsTitle: "Coursework, projects & distance learning",
     details: [
       "Completed a broad Computer Science curriculum spanning algorithms, databases, software engineering, operating systems, computer architecture, assembly, machine learning, and data analysis.",
       "Built individual and team projects that turned classroom concepts into working software using Java, Python, SQL, Linux, and version control.",
@@ -403,6 +412,26 @@ const experiences = [
     icons: [
       {
         name: "FaBrain",
+        label: "Artificial Intelligence",
+        description: "Focused on artificial intelligence, connecting computational problem-solving with machine learning concepts and integrated coursework."
+      },
+      {
+        name: "FaNetworkWired",
+        label: "Infrastructure Patterns",
+        description: "Studied infrastructure patterns and how the parts of a software system fit together, connecting systems coursework with application design."
+      },
+      {
+        name: "FaCube",
+        label: "3D Concepts",
+        description: "Studied 3D concepts and spatial reasoning, exploring how software represents and works with three-dimensional environments."
+      },
+      {
+        name: "FaRobot",
+        label: "Robot Path Planning",
+        description: "Studied robot path planning, connecting algorithms and spatial reasoning to the problem of navigating an environment."
+      },
+      {
+        name: "FaSitemap",
         label: "Algorithms & Data Structures",
         description: "Studied runtime analysis, recursion, sorting, searching, trees, graphs, and the tradeoffs behind choosing an efficient approach to a problem."
       },
@@ -423,8 +452,13 @@ const experiences = [
       },
       {
         name: "FaProjectDiagram",
-        label: "Course Projects",
-        description: "Built individual and team projects across software engineering, machine learning, systems, and data, with an emphasis on turning theory into working applications."
+        label: "Integrated Projects",
+        description: "Connected concepts from software engineering, systems, and data in individual and team projects, translating coursework into working applications."
+      },
+      {
+        name: "FaChalkboardTeacher",
+        label: "Distance Learning Software",
+        description: "Worked on software for Rutgers’ distance learning department, helping support remote courses and seminars for instructors and students."
       },
       {
         name: "FaPython",

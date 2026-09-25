@@ -25,8 +25,8 @@ const TAGLINE = [
   {
     text: (
       <>
-        I enjoy turning{' '}
-        <strong className="text-emerald-400 font-semibold">problems into solutions</strong>.
+        Bringing clarity{' '}
+        <strong className="text-emerald-400 font-semibold">to technology</strong>.
       </>
     ),
   },
@@ -35,7 +35,7 @@ const TAGLINE = [
 const PhoneHeaderText = ({ onScrollTo, onContactOpen }) => (
   <div className="flex flex-col gap-5 relative z-10 w-full max-w-md">
     <p className="text-xs font-semibold tracking-[3px] uppercase text-blue-500">
-      Full Stack Engineer &amp; Founder
+      Full Stack Engineer &amp; Data Architect
     </p>
 
     <h1
@@ -48,10 +48,10 @@ const PhoneHeaderText = ({ onScrollTo, onContactOpen }) => (
       <span style={{ display: 'block', marginTop: '0.05em' }}>Snyder 🥨</span>
     </h1>
 
-    <ul className="flex flex-col gap-2 max-w-sm">
+    <ul className="flex flex-col gap-3 max-w-md">
       {TAGLINE.map((item, i) => (
-        <li key={i} className="flex items-start gap-3 text-[15px] text-slate-400 leading-relaxed">
-          <span className="mt-[7px] w-[6px] h-[6px] rounded-full bg-blue-600 flex-shrink-0" />
+        <li key={i} className="flex items-start gap-3 text-lg sm:text-xl text-slate-400 leading-relaxed">
+          <span className="mt-[10px] h-2 w-2 rounded-full bg-blue-600 flex-shrink-0 sm:mt-[12px]" />
           <span>{item.text}</span>
         </li>
       ))}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const ROUTES = [
   'M -80 170 C 160 170 150 330 390 330 S 650 165 865 165 S 1120 320 1520 320',
@@ -7,27 +7,6 @@ const ROUTES = [
   'M 1230 -70 C 1230 180 1050 205 1050 420 S 1265 640 1265 970',
   'M -80 430 C 170 430 250 250 520 250 S 780 555 1020 555 S 1250 415 1520 415',
 ];
-
-const MovingPacket = ({ route, duration, delay = '0s', value, reverse = false, color = '#38bdf8' }) => {
-  return (
-    <g className="pipeline-traveler">
-      <circle r="16" fill="#020818" stroke={color} strokeOpacity=".25" />
-      <rect x="-20" y="-10" width="40" height="20" rx="10" fill="#071426" stroke={color} strokeWidth="1" />
-      <text x="0" y="3.5" textAnchor="middle" fill={color} fontSize="8.5" fontWeight="800" letterSpacing=".5">
-        {value}
-      </text>
-      <animateMotion
-        dur={duration}
-        begin={delay}
-        path={route}
-        repeatCount="indefinite"
-        keyPoints={reverse ? '1;0' : '0;1'}
-        keyTimes="0;1"
-        calcMode="linear"
-      />
-    </g>
-  );
-};
 
 const Endpoint = ({ x, y, kind = 'person', color = '#34d399', label }) => (
   <g transform={`translate(${x} ${y})`} className="pipeline-endpoint">
@@ -58,9 +37,7 @@ const Endpoint = ({ x, y, kind = 'person', color = '#34d399', label }) => (
         <path d="M -3 -4 H 9" stroke={color} strokeWidth="2" strokeLinecap="round" opacity=".6" />
       </g>
     )}
-    <circle r="31" stroke={color} strokeWidth="1" strokeDasharray="3 8" opacity=".45">
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="18s" repeatCount="indefinite" />
-    </circle>
+    <circle r="31" stroke={color} strokeWidth="1" strokeDasharray="3 8" opacity=".45" />
     {label && (
       <text y="48" textAnchor="middle" fill="#94a3b8" fontSize="8" fontWeight="700" letterSpacing="1.4">
         {label}
@@ -72,35 +49,18 @@ const Endpoint = ({ x, y, kind = 'person', color = '#34d399', label }) => (
 const Junction = ({ x, y, color = '#38bdf8' }) => (
   <g transform={`translate(${x} ${y})`}>
     <circle r="18" fill="#020818" stroke={color} strokeOpacity=".3" />
-    <circle r="5" fill={color}>
-      <animate attributeName="opacity" values=".35;1;.35" dur="2.8s" repeatCount="indefinite" />
-      <animate attributeName="r" values="4;6;4" dur="2.8s" repeatCount="indefinite" />
-    </circle>
+    <circle r="5" fill={color} />
   </g>
 );
 
-const InformationPipeline = ({ paused = false }) => {
-  const svgRef = useRef(null);
-
-  useEffect(() => {
-    const svg = svgRef.current;
-    if (!svg) return;
-
-    if (paused) {
-      svg.pauseAnimations?.();
-    } else {
-      svg.unpauseAnimations?.();
-    }
-  }, [paused]);
-
+// Keep this full-size decorative SVG static to avoid continuous repainting.
+const InformationPipeline = () => {
   return (
     <div
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       aria-hidden="true"
-      data-pipeline-paused={paused ? 'true' : 'false'}
     >
       <svg
-        ref={svgRef}
         className="h-full w-full"
         viewBox="0 0 1440 900"
         preserveAspectRatio="xMidYMid slice"
@@ -112,10 +72,6 @@ const InformationPipeline = ({ paused = false }) => {
           <stop offset=".5" stopColor="#38bdf8" stopOpacity=".34" />
           <stop offset="1" stopColor="#10b981" stopOpacity=".12" />
         </linearGradient>
-        <filter id="pipeline-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
       </defs>
 
       {ROUTES.map((route, index) => (
@@ -129,29 +85,13 @@ const InformationPipeline = ({ paused = false }) => {
             strokeDasharray="2 18"
             strokeLinecap="round"
             opacity=".45"
-          >
-            <animate attributeName="stroke-dashoffset" from="0" to="-100" dur={`${9 + index * 2}s`} repeatCount="indefinite" />
-          </path>
+          />
         </g>
       ))}
 
-      {/* Packets stay behind the larger people and computer endpoints. */}
-      <g filter="url(#pipeline-glow)">
-        <MovingPacket route={ROUTES[0]} duration="8s" delay="-3s" value="0xA3" />
-        <MovingPacket route={ROUTES[0]} duration="17s" delay="-11s" value="7F" color="#34d399" reverse />
-        <MovingPacket route={ROUTES[1]} duration="11s" delay="-5s" value="0x1C" color="#818cf8" />
-        <MovingPacket route={ROUTES[1]} duration="20s" delay="-13s" value="B8" reverse />
-        <MovingPacket route={ROUTES[2]} duration="9s" delay="-2s" value="3E" reverse />
-        <MovingPacket route={ROUTES[2]} duration="18s" delay="-9s" value="0xD4" color="#34d399" />
-        <MovingPacket route={ROUTES[3]} duration="12s" delay="-4s" value="AF" color="#818cf8" reverse />
-        <MovingPacket route={ROUTES[3]} duration="21s" delay="-12s" value="0x09" />
-        <MovingPacket route={ROUTES[4]} duration="7s" delay="-5s" value="C2" />
-        <MovingPacket route={ROUTES[4]} duration="15s" delay="-8s" value="0x6B" color="#34d399" reverse />
-      </g>
-
       <Junction x="930" y="715" />
 
-      <g filter="url(#pipeline-glow)">
+      <g>
         <Endpoint x="1108" y="235" kind="person" label="USER" />
         <Endpoint x="267" y="312" kind="cloud" color="#f59e0b" label="CLOUD" />
         <Endpoint x="311" y="528" kind="person" color="#38bdf8" label="TEAM" />

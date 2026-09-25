@@ -66,7 +66,7 @@ const PhoneHeader = ({ onScrollTo, phonePaused = false, onPhoneOpen }) => {
         style={{ bottom: '-100px', right: '200px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)' }}
       />
 
-      <InformationPipeline paused={animationsPaused} />
+      <InformationPipeline />
 
       <PhoneHeaderText onScrollTo={onScrollTo} onContactOpen={() => setContactOpen(true)} />
       <PhoneHeaderPhone paused={animationsPaused} inactive onOpen={onPhoneOpen} />

@@ -15,7 +15,13 @@ import {
     FaBrain,
     FaComments,
     FaMicrochip,
-    FaProjectDiagram
+    FaProjectDiagram,
+    FaUsers,
+    FaChalkboardTeacher,
+    FaNetworkWired,
+    FaCube,
+    FaRobot,
+    FaSitemap
   } from 'react-icons/fa';
   import { SiJenkins, SiPytorch, SiTerraform } from 'react-icons/si';
   import { SiMysql } from "react-icons/si";
@@ -25,7 +31,6 @@ import {
   import { FaEgg } from "react-icons/fa6";
   import { MdOutlineEgg } from "react-icons/md";
   import { FaGolang } from "react-icons/fa6";
-import { IconShadows } from '../data';
 import JiggleSpinComponent from './JiggleSpinComponent';
 
   const IconComponents = {
@@ -55,7 +60,57 @@ import JiggleSpinComponent from './JiggleSpinComponent';
     FaBrain,
     FaComments,
     FaMicrochip,
-    FaProjectDiagram
+    FaProjectDiagram,
+    FaUsers,
+    FaChalkboardTeacher,
+    FaNetworkWired,
+    FaCube,
+    FaRobot,
+    FaSitemap
+  };
+
+  // Brand-inspired icon colors; neutral brands use a light variant on this dark UI.
+  const toolColors = {
+    FaPython: '#3776AB',
+    FaAws: '#FF9900',
+    FaDocker: '#2496ED',
+    FaGit: '#F05032',
+    FaGithub: '#F0F6FC',
+    FaHtml5: '#E34F26',
+    FaCss3: '#1572B6',
+    FaLinux: '#FCC624',
+    FaDrupal: '#009CDE',
+    FaJava: '#F89820',
+    SiJenkins: '#D24939',
+    SiPytorch: '#EE4C2C',
+    SiTerraform: '#844FBA',
+    SiMysql: '#4479A1',
+    FaDatabase: '#4DB6AC',
+    FaShopify: '#95BF47',
+    FaBootstrap: '#7952B3',
+    FaEgg: '#FDE68A',
+    MdOutlineEgg: '#FBBF24',
+    FaReact: '#61DAFB',
+    FaGolang: '#00ADD8',
+    FaNodeJs: '#5FA04E',
+    FaCloud: '#7DD3FC',
+    FaBrain: '#F472B6',
+    FaComments: '#A3E635',
+    FaMicrochip: '#FB7185',
+    FaProjectDiagram: '#C4B5FD',
+    FaUsers: '#60A5FA',
+    FaChalkboardTeacher: '#34D399',
+    FaNetworkWired: '#38BDF8',
+    FaCube: '#A78BFA',
+    FaRobot: '#FBBF24',
+    FaSitemap: '#FB923C',
+  };
+
+  // Generic symbols can represent different products, so resolve those by label.
+  const toolLabelColors = {
+    PostgreSQL: '#336791',
+    Hostinger: '#A78BFA',
+    OpenAI: '#F5F5F5',
   };
 
   const ExperienceIcons = ({ icons = [], showDescription=true, size=100 }) => (
@@ -63,7 +118,7 @@ import JiggleSpinComponent from './JiggleSpinComponent';
         {icons.length > 0 ? (
           icons.map((icon) => {
             const IconComponent = IconComponents[icon.name];
-            const shadowClass = IconShadows[icon.name]; // Fetch shadow class from IconShadows
+            const color = icon.color || toolLabelColors[icon.label] || toolColors[icon.name] || "#CBD5E1";
 
             // Check if the IconComponent exists before rendering
             if (!IconComponent) {
@@ -77,19 +132,17 @@ import JiggleSpinComponent from './JiggleSpinComponent';
                 <div className="group">
                   <div key={icon.name} className="flex flex-col items-center transition-transform hover:scale-125 duration-500">
                     {icon.name === 'FaShopify' ? (
-                      <JiggleSpinComponent shadowColor="rgba(0, 255, 0, 0.8)" eggColor="green">
+                      <JiggleSpinComponent shadowColor={color} eggColor="green">
                         <IconComponent
                           size={size}
-                          className="text-white filter drop-shadow-lg transition-all duration-300"
+                          color={color}
                         />
                       </JiggleSpinComponent>
                     ) : (
                       <div className="group">
                         <IconComponent
                           size={size}
-                          className={`text-white filter drop-shadow-lg transition-all duration-300 group-hover:filter ${
-                            shadowClass || '' // Apply the specific hover shadow from IconShadows
-                          }`}
+                          color={color}
                         />
                       </div>
                     )}

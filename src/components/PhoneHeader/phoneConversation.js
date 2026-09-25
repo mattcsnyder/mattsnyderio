@@ -7,13 +7,15 @@ export const PORTFOLIO_TOPICS = {
   build: {
     icon: '🔨',
     question: 'What does Matt build?',
-    answer: 'Matt builds full-stack products that run real operations. He works across React interfaces, Go APIs, Python data pipelines, PostgreSQL, AI tooling, and AWS, then adds multi-tenant security, monitoring, and reliable deployment so the product can support real users.',
+    answer: 'Matt creates a wide range of digital products, from web design to AI models. Most of his projects are available to learn from.',
+    sectionLink: { id: 'github', label: 'Explore his projects on GitHub ↓' },
     followUps: ['projects', 'design', 'approach', 'stack'],
   },
   experience: {
     icon: '💼',
     question: 'Tell me about his experience',
-    answer: 'Matt founded Snydex Platforms and previously built ML infrastructure at Flatiron Health, publishing systems at Arizent, Shopify solutions as a freelancer, and university applications at Rutgers.',
+    answer: 'Matt has worked at the frontline of data across different fields. At Flatiron Health, he built machine learning infrastructure and data pipelines supporting cancer research. At Arizent, he worked on publishing systems that helped teams manage and deliver information. Today, he brings that experience to the digital products he builds at Snydex Platforms.',
+    sectionLink: { id: 'experience', label: 'You can see his experience here ↓' },
     topicLinks: [
       { topicId: 'snydex', icon: '🏗️', label: 'Snydex Platforms', detail: 'Founder and engineer' },
       { topicId: 'flatiron', icon: '🧬', label: 'Flatiron Health', detail: 'ML infrastructure' },
@@ -60,7 +62,7 @@ export const PORTFOLIO_TOPICS = {
   stack: {
     icon: '🧰',
     question: 'What’s his tech stack?',
-    answer: 'Matt uses React and TypeScript for interfaces, Go for high-performance services, Python for data and AI workflows, PostgreSQL for structured multi-tenant data, and AWS for deployment and scale. He chooses the stack around the product’s needs instead of forcing every project into one pattern.',
+    answer: 'Matt works across the stack, combining experience in applied data architecture with a personal passion for LLM development and AI. He uses Databricks, AWS, and self-hosted tools to connect data, models, and applications. His interests extend to frontend design, where he cares as much about how a product feels to use as how it works underneath.',
     followUps: ['ai', 'approach', 'experience'],
   },
   availability: {
@@ -102,7 +104,7 @@ export const PORTFOLIO_TOPICS = {
   role: {
     icon: '🎯',
     question: 'What roles is he targeting?',
-    answer: 'Matt is targeting full-stack, product engineering, and AI infrastructure roles where he can own meaningful systems from idea through production.',
+    answer: 'Matt is targeting full-stack, product engineering, and AI infrastructure roles where he can take part in developing meaningful systems from idea through production.',
     followUps: ['experience', 'stack', 'contact'],
   },
   snydex: {

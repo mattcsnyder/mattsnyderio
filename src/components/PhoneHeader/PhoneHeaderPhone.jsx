@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { INTRO_MESSAGES, PORTFOLIO_TOPICS, PRIMARY_TOPIC_IDS, PROMPT_APPS } from './phoneConversation';
 import useCopyEmail from '../../hooks/useCopyEmail';
 
-const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, inactive = false, onOpen, scale = 1, startExploring = false }) => {
+const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, inactive = false, onOpen, onNavigate, scale = 1, startExploring = false }) => {
   const messagesRef = useRef(null);
   const responseTimerRef = useRef(null);
   const typewriterTimerRef = useRef(null);
@@ -162,7 +162,7 @@ const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, in
       () => {
         setTyping(true);
         responseTimerRef.current = window.setTimeout(() => {
-          typeChatMessage({ side: 'matt', text: topic.answer }, () => {
+          typeChatMessage({ side: 'matt', text: topic.answer, sectionLink: topic.sectionLink }, () => {
             setContacts(topic.contacts || []);
             setTopicLinks(topic.topicLinks || []);
             setFollowUps(topic.followUps || PRIMARY_TOPIC_IDS);
@@ -210,7 +210,7 @@ const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, in
         () => {
           setTyping(true);
           responseTimerRef.current = window.setTimeout(() => {
-            typeChatMessage({ side: 'matt', text: topic.answer }, () => {
+            typeChatMessage({ side: 'matt', text: topic.answer, sectionLink: topic.sectionLink }, () => {
               setContacts(topic.contacts || []);
               setTopicLinks(topic.topicLinks || []);
               setFollowUps(topic.followUps || PRIMARY_TOPIC_IDS);
@@ -266,7 +266,7 @@ const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, in
 
   return (
     <div
-      className={`flex-shrink-0 relative z-10 ${intro ? 'phone-intro-jiggle' : ''} ${inactive ? 'phone-inactive-launcher' : ''}`}
+      className={`flex-shrink-0 relative z-10 ${intro ? 'phone-intro-jiggle phone-intro-surface' : ''} ${inactive ? 'phone-inactive-launcher' : ''}`}
       aria-label={inactive ? 'Open Matt’s portfolio assistant' : messagesOpen ? 'Interactive portfolio assistant' : 'Phone waking up'}
       data-conversation-paused={paused ? 'true' : 'false'}
       role={inactive ? 'button' : undefined}
@@ -284,7 +284,7 @@ const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, in
         style={{
           width: '240px', height: '520px', background: '#1c1c1e', borderRadius: '44px',
           border: '2px solid #3a3a3c',
-          boxShadow: '0 0 0 1px #000, 0 32px 80px rgba(0,0,0,0.9), 0 0 60px rgba(37,99,235,0.08)',
+          boxShadow: intro ? '0 0 0 1px #000' : '0 0 0 1px #000, 0 32px 80px rgba(0,0,0,0.9), 0 0 60px rgba(37,99,235,0.08)',
           display: 'flex', flexDirection: 'column', overflow: 'hidden', position: 'relative',
           transform: `scale(${scale})`, transformOrigin: 'top left',
         }}
@@ -337,7 +337,23 @@ const PhoneHeaderPhone = ({ revealDelayMs = 0, intro = false, paused = false, in
                         </span>
                       </span>
                     ) : (
-                      <span>{message.text}</span>
+                      <span>
+                        {message.text}
+                        {message.sectionLink && (
+                          <a
+                            href={`#${message.sectionLink.id}`}
+                            className="mt-2 block font-semibold text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                            onClick={(event) => {
+                              if (onNavigate) {
+                                event.preventDefault();
+                                onNavigate(message.sectionLink.id);
+                              }
+                            }}
+                          >
+                            {message.sectionLink.label}
+                          </a>
+                        )}
+                      </span>
                     )}
                   </div>
                 </div>
